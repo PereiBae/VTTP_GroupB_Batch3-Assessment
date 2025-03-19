@@ -35,7 +35,7 @@ public class News {
 
 	@Override
 	public String toString() {
-		return "News{id: %s, postDate: %d, title: %s}".formatted(id, getPostDateAsDate(), title);
+		return "News{id: %s, postDate: %tF, title: %s}".formatted(id, getPostDateAsDate(), title);
 	}
 
 	/* Do not modify this file */

@@ -1,0 +1,57 @@
+<h1>Share a News</h1>
+
+<form [formGroup]="form" (submit)="processForm()">
+  <table>
+    <tr>
+      <td>
+        Title:
+      </td>
+      <td>
+        <input type="text" formControlName="title">
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Photo:
+      </td>
+      <td>
+        <input type="file" accept="image/*" formControlName="photo" #imageFile>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Description:
+      </td>
+      <td>
+        <textarea cols="30" rows="4" formControlName="description"></textarea>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Tags:
+      </td>
+      <td>
+        <input type="text" formControlName="tags">
+      </td>
+      <td>
+        <button type="button" (click)="addTags(this.form.value['tags'])">+</button>
+      </td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>
+        <span *ngFor="let tag of displayTags">
+          <code (click)="removeTag(tag)">{{ tag }}</code>
+        </span>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <button type="button" [routerLink]="['/']">Back</button>
+      </td>
+      <td>
+        <button type="submit" [disabled]="form.invalid">Post News</button>
+      </td>
+    </tr>
+  </table>
+</form>

@@ -1,0 +1,21 @@
+<h1>List of News with #{{tag}}</h1>
+<table>
+  <tr>
+    <td>
+      <button type="button" routerLink="/"> Back </button>
+    </td>
+    <td>
+      <button type="button" routerLink="/post"> Post News</button>
+    </td>
+  </tr>
+</table>
+
+@for (post of news; track post.id) {
+  <div>
+    <h1>{{post.title}}</h1>
+    <h2>Publish Date: {{post.postDateAsDate | date}}</h2>
+    <img src="{{post.image}}" style="width: 200px;" alt="">
+    <h3>{{post.description}}</h3>
+    <span>Tags: {{post.tags}}</span>
+  </div>
+}

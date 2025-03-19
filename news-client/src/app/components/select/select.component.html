@@ -1,0 +1,38 @@
+<table>
+  <tr>
+    <td>Time</td>
+    <td>
+      <select (change)="dropdownSelect($event)">
+        <option value="5">5 mins</option>
+        <option value="15">15 mins</option>
+        <option value="30">30 mins</option>
+        <option value="45">45 mins</option>
+        <option value="60">60 mins</option>
+      </select>
+    </td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>
+      <button type="button" [routerLink]="['/post']" >Post News</button>
+    </td>
+  </tr>
+</table>
+
+@if(tagList.length > 0){
+  <table>
+  @for (tag of tagList ; track tag.tag) {
+    <tr>
+      <td>
+        <a [routerLink]="['/list/' + tag.tag + '/' + timeSelected]">
+          <h3>
+            {{tag.tag}} <span>({{ tag.count }})</span>
+          </h3>
+        </a>
+      </td>
+    </tr>
+  }
+  </table>
+} @else {
+  <h2>No new hashtags found in the last {{timeSelected}} minutes</h2>
+}
