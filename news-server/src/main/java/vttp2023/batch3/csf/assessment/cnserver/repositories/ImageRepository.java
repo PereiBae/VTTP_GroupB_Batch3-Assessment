@@ -48,7 +48,7 @@ public class ImageRepository {
 
         s3.putObject(putObjectRequest);
 
-        System.out.printf("https://%s.%s/picture/%s".formatted(bucket, endpoint, image_id));
+        System.out.printf("https://%s.%s/picture/%s\n".formatted(bucket, endpoint, image_id));
 
         return "https://%s.%s/picture/%s".formatted(bucket, endpoint, image_id);
     }
